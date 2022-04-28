@@ -1,0 +1,45 @@
+<%- include('common/header') %>
+
+<div class="container-fluid">
+    <div class="row mt-3 ml-5 ">
+        <div class="col-3 border border-dark p-3">
+            <form id="register">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="number" class="form-control" id="contact" placeholder="Contact">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+                <a href="/login">Login</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row fixed-bottom border border-dark">
+    <div class="span12">
+        <div>
+            <ul class="footer">
+                <li style="list-style-type: none">&copy; Copyright : Faraz : Designed and Developed by Faraz </li>
+                &nbsp;&nbsp;
+            </ul>
+        </div>
+    </div>
+</div>
+
+<%- include('common/footer') %>
