@@ -5,7 +5,7 @@ metadata:
   labels:
     app: node
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: node
@@ -20,6 +20,9 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
 ---
 apiVersion: v1
 kind: Service
@@ -33,3 +36,16 @@ spec:
       port: 3000
       targetPort: 3000
   type: LoadBalancer
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: faraz-node-application-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: faraz-node-application-deployment
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress-generator
+spec:
+  selector:
+    matchLabels:
+      app: stress-generator
+      tier: backend
+  replicas: 15
+  template:
+    metadata:
+      labels:
+        app: stress-generator
+        tier: backend
+    spec:
+      containers:
+        - name: stress-generator
+          image: centos:7
+          command: ["/bin/sh"]
+          args:
+            [
+              "-c",
+              "yum install -y epel-release && yum install -y siege && echo -e 'http://faraz-node-application-service.default.svc.cluster.local:3000/health' > urls.txt && siege -t 2h -f urls.txt",
+            ]
