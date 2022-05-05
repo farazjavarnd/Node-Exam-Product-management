@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy to Kubernetes') { 
             steps {
                 bat """
-                    kubectl apply -f application.yaml
+                    kubectl apply -f .\\kubernetes\\application.yaml --validate=false
                 """
             }
         }
