@@ -5,7 +5,7 @@
 
 # Deploy node application
 
-There are two ways to deploy this node application
+There are two ways to deploy this node application.
 
 1. Automated Jenkins pipeline :
    We have setup a declarative jenkins pipeline named as "Jenkinsfile". In order to execute this pipeline we first need to create a job in jenkins UI and then use build now button to execute the pipeline. This pipeline will automatically create the docker image and then it will deploy the kubernetes manifest for the node application.
@@ -55,7 +55,7 @@ kubectl top pods
 kubectl get pods -n kube-system
 ```
 
-# Common Docker/kubernetes commands for debugging
+# Common Docker/kubernetes commands for debugging and maintaining
 
 ## Build Image
 
