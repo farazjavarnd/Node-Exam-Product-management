@@ -52,6 +52,7 @@ This process takes some time and you can observe the pod scaling by executing be
 kubectl get pods
 kubectl get hpa
 kubectl top pods
+kubectl get pods -n kube-system
 ```
 
 # Common Docker/kubernetes commands for debugging
@@ -81,12 +82,12 @@ kubectl delete -f <filename>.yaml
 
 kubectl get nodes
 kubectl get deployments
-kubectl get services
+kubectl get pods
 kubectl top pods
 
+kubectl get services
 
-kubectl get deployments
-kubectl get pods
+
 kubectl get services
 kubectl logs -f <pod-name>
 kubectl get events
