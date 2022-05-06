@@ -8,14 +8,12 @@ pipeline {
                 """
             }
         }
-        stage('Deploy to Kubernetes') { 
-            steps {
-                bat """
-                    kubectl apply -f '.\\kubernetes\\application.yaml' --validate=false
-                """
-            }
-        }
+        stage('Deploying App to Kubernetes') {
+			steps {
+				script {
+					kubernetesDeploy(configs: "kubernetes/application.yaml", kubeconfigId: "kubernetes")
+				}
+			}
+		}
     }
 }
-
-
