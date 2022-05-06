@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     stages {
-        stage('Stress testing on Node App') {
+        stage('Metric Server') {
 			steps {
 				script {
 					kubernetesDeploy(configs: "kubernetes/components.yaml", kubeconfigId: "kubernetes")
